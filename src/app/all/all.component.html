@@ -1,0 +1,65 @@
+<table mat-table [dataSource]="trucks" class="mat-elevation-z8">
+  <!-- ID Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let truck">{{ truck.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let truck">{{ truck.name }}</td>
+  </ng-container>
+
+  <!-- Brand Column -->
+  <ng-container matColumnDef="brand">
+    <th mat-header-cell *matHeaderCellDef>Marque</th>
+    <td mat-cell *matCellDef="let truck">{{ truck.brand }}</td>
+  </ng-container>
+
+  <!-- Wheel Brand Column -->
+  <ng-container matColumnDef="wheelBrand">
+    <th mat-header-cell *matHeaderCellDef>Marque des roues</th>
+    <td mat-cell *matCellDef="let truck">{{ truck.wheelSteering?.brand }}</td>
+  </ng-container>
+
+  <!-- Wheel Size Column -->
+  <ng-container matColumnDef="wheelSize">
+    <th mat-header-cell *matHeaderCellDef>Taille des roues</th>
+    <td mat-cell *matCellDef="let truck">{{ truck.wheelSteering?.size }}</td>
+  </ng-container>
+
+  <!-- Header Row -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <!-- Data Rows -->
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+
+<form [formGroup]="truckForm" (ngSubmit)="submitForm()">
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput formControlName="id" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Marque</mat-label>
+    <input matInput formControlName="brand" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Marque des roues</mat-label>
+    <input matInput formControlName="wheelBrand" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Taille des roues</mat-label>
+    <input matInput formControlName="wheelSize" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Enregistrer</button>
+</form>

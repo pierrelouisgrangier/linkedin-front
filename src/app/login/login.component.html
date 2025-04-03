@@ -1,0 +1,16 @@
+<div class="example-container">
+  <form [formGroup]="loginForm" (ngSubmit)="connect()" *ngIf="!isConnect">
+    <mat-form-field floatLabel="always">
+      <mat-label>Enter your username</mat-label>
+      <input formControlName="username" matInput type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Enter your password</mat-label>
+      <input formControlName="password" matInput type="password" />
+    </mat-form-field>
+    <button>Connect</button>
+  </form>
+  <div *ngIf="isConnect">
+    Vous êtes connecté <button (click)="logout()">Déconnection</button>
+  </div>
+</div>
