@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class TruckService {
-  url = 'http://localhost:8080/raph';
+  url = 'http://localhost:8080/api/raph';
 
   constructor(private http: HttpClient) {}
 

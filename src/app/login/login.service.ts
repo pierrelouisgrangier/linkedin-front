@@ -18,7 +18,7 @@ export class LoginService {
     )}&password=${encodeURIComponent(password)}`;
 
     return this.http
-      .post('http://localhost:8080/login', body, { headers })
+      .post('http://localhost:8080/api/login', body, { headers })
       .pipe(
         tap(() => {
           this._connect = true;
@@ -27,7 +27,7 @@ export class LoginService {
   }
 
   logout(): Observable<any> {
-    return this.http.post('http://localhost:8080/logout', {});
+    return this.http.post('http://localhost:8080/api/logout', {});
   }
 
   get connect() {
